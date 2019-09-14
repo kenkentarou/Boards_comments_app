@@ -31,11 +31,11 @@ module RunteqNormal
     config.generators.system_tests = nil
 
     config.generators do |g|
-+      g.assets false
-+      g.skip_routes false
-+      g.helper false
-+      g.test_framework false
-　　 end   
+      g.assets false
+      g.skip_routes false
+      g.helper false
+      g.test_framework false
+　　 end
 
     # Railsが表示の際に扱うタイムゾーン
     config.time_zone = "Tokyo"
