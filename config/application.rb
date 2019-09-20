@@ -35,7 +35,7 @@ module RunteqNormal
       g.skip_routes false
       g.helper false
       g.test_framework false
-　　 end
+    end
 
     # Railsが表示の際に扱うタイムゾーン
     config.time_zone = "Tokyo"
