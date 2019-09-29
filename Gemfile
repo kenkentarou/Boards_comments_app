@@ -64,3 +64,8 @@ gem 'font-awesome-sass'
 # bootstrap用
 gem 'bootstrap', '~> 4.3.1'
 gem 'jquery-rails'
+
+gem 'sorcery'
+  gem 'binding_of_caller'
+  gem 'pry-byebug'
+  gem 'pry-rails'
