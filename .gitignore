@@ -31,11 +31,4 @@
 /config/database.yml
 
 .DS_Store
-.idea/.generators
-.idea/.gitignore
-.idea/.rakeTasks
-.idea/inspectionProfiles/Project_Default.xml
-.idea/misc.xml
-.idea/modules.xml
-.idea/vcs.xml
-.idea/【最新】daikentarou.iml
+.idea
