@@ -1,11 +1,10 @@
 ja:
-  views:
-    users:
-      new:
-        user_create: "ユーザー登録"
-        login_page: "ログインページへ"
-    user_sessions:
-      new:
-        login: "ログイン"
-        create_page: "登録ページへ"
-        password_forget: "パスワードをお忘れの方はこちら"
+  users:
+    new:
+      user_create: "ユーザー登録"
+      login_page: "ログインページへ"
+  user_sessions:
+    new:
+      login: "ログイン"
+      create_page: "登録ページへ"
+      password_forget: "パスワードをお忘れの方はこちら"
