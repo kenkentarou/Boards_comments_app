@@ -2,18 +2,16 @@
 <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
   <div id="product-id-33">
     <div class="card">
-      <img class="card-img-top"
-           src="/assets/sample-08ca6735af47bfefce4c43e3de2182768289121aa057f141b7f4704a89670827.jpg" width="300"
-           height="200" />
+      <%= image_tag("sample.jpg", class: "card-img-top", :width => "300", :height => "200") %>
       <div class="card-body">
         <h4 class="card-title">
-          <a href="#"><%= board.title %></a>
+          <%=link_to board.title, "#" %>
         </h4>
-        <div style='display: inline; float: right;'>
-          <a id="btn-bookmark-33" data-remote="true" rel="nofollow" data-method="post"
-             href="/bookmarks?board_id=33">
+        <div class="bookmark">
+          <%= link_to "#", id: 'bookmark-link', 'data-remote': true, rel: 'nofollow', method: :post do %>
             <i class="fa fa-star-o"></i>
-          </a></div>
+          <% end %>
+        </div>
 
 
         <ul class="list-inline">
