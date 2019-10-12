@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'boards/index', to: 'boards#index'
+  resources :boards, only: %i[index]
   root 'static_pages#top'
   resources :users, only: %i[new create]
   get 'login', to: 'user_sessions#new'
