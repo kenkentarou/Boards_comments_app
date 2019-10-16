@@ -20,7 +20,7 @@
         <% if @boards.empty? %>
           <%= "掲示板はありません" %>
         <% else %>
-          <%= render 'single_board' , locals: {boards: @boards} %>
+          <%= render @boards %>
         <% end %>
       </div>
     </div>
