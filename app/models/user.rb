@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :boards, dependent: :destroy
   authenticates_with_sorcery!
   validates :last_name, presence: true
   validates :first_name, presence: true

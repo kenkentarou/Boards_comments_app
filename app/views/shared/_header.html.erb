@@ -1,8 +1,8 @@
 <header>
   <nav class="navbar navbar-expand-lg navigation navbar-light bg-light">
 
-    <%= link_to root_path, class: "navbar-brand" do %>
-    <%= image_tag "logo.png" %>
+    <%= link_to root_path, class: 'navbar-brand' do %>
+    <%= image_tag 'logo.png' %>
     <% end %>
     <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarSupportedContent'
       aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
@@ -18,24 +18,24 @@
           <% end %>
 
           <div class="dropdown-menu dropdown-menu-right">
-            <%= link_to "掲示板一覧", "#", class: "dropdown-item" %>
-            <%= link_to "掲示板作成", "#", class: "dropdown-item" %>
+            <%= link_to '掲示板一覧', boards_path, class: 'dropdown-item' %>
+            <%= link_to '掲示板作成', '#', class: 'dropdown-item' %>
           </div>
         </li>
 
         <li class="nav-item">
-          <%= link_to "ブックマーク一覧", "#", class: "nav-link" %>
+          <%= link_to 'ブックマーク一覧', '#', class: 'nav-link' %>
         </li>
 
         <li class="nav-item dropdown dropdown-slide">
           <%= link_to '#', class: 'nav-link', 'data-toggle': :dropdown, 'aria-haspopup': true, 'aria-expanded': false, id: 'header-profile' do %>
-            <%= image_tag("sample.jpg", class: 'rounded-circle mr15', :width => "40", :height => "40") %>
+            <%= image_tag('sample.jpg', class: 'rounded-circle mr15', width: '40', height: '40') %>
           <% end %>
           <div class="dropdown-menu dropdown-menu-right">
             <div class='dropdown-item'><%= current_user.decorate.full_name %></div>
             <div class="dropdown-divider"></div>
-            <%= link_to "プロフィール", "#", class: 'dropdown-item'%>
-            <%= link_to "ログアウト", logout_path, class: 'dropdown-item', method: :post %>
+            <%= link_to 'プロフィール', '#', class: 'dropdown-item'%>
+            <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :post %>
           </div>
         </li>
       </ul>
