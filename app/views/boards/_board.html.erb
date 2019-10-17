@@ -1,4 +1,4 @@
-<% @boards.each do |board| %>
+
 <div class="col-sm-12 col-md-6 col-lg-4 mb-3">
   <div id="product-id-33">
     <div class="card">
@@ -7,12 +7,11 @@
         <h4 class="card-title">
           <%=link_to board.title, '#' %>
         </h4>
-        <div class="bookmark">
+        <div class="d-inline float-right">
           <%= link_to '#', id: 'bookmark-link', 'data-remote': true, rel: 'nofollow', method: :post do %>
             <i class='fa fa-star-o'></i>
           <% end %>
         </div>
-
 
         <ul class="list-inline">
           <li class="list-inline-item">
@@ -29,4 +28,3 @@
     </div>
   </div>
 </div>
-<% end %>
