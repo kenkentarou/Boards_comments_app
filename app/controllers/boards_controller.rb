@@ -10,9 +10,7 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = Board.new(title: board_params[:title],
-                       body: board_params[:body],
-                       user_id: current_user.id)
+    @board = current_user.boards.new(board_params)
     if @board.save
       redirect_to(boards_path, success: '掲示板の作成が完了しました')
     else
