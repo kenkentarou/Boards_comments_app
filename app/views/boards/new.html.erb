@@ -1,18 +1,18 @@
-<div class="container">
-  <div class="row">
-    <div class="col-lg-8 offset-lg-2">
-      <h1>掲示板作成</h1>
-      <form class="new_board">
-        <div class="form-group">
-          <label for="board_title">タイトル</label>
-          <input class="form-control" type="text" name="board[title]" id="board_title" />
+<div class='container'>
+  <div class='row'>
+    <div class='col-lg-8 offset-lg-2'>
+      <h1><%= t('.boards_create') %></h1>
+      <%= form_with(url: boards_path, model: @board, local: true) do |form| %>
+        <div class='form-group'>
+          <label for='board_title'><%= t('.boards_title') %></label>
+          <%= form.text_field :title, class: 'form-control', id: 'board_title' %>
         </div>
-        <div class="form-group">
-          <label for="board_body">本文</label>
-          <textarea class="form-control" row="10" style="height: 200px" name="board[body]" id="board_body"></textarea>
+        <div class='form-group'>
+          <label for='board_body'><%= t('.boards_text') %></label>
+        <%= form.text_area :body, class: 'form-control', row: '10', heigth: '200px', id: 'board_body' %>
         </div>
-        <input type="submit" name="commit" value="作成" class="btn btn-primary" data-disable-with="作成" />
-      </form>
+      <%= form.submit :commit, class: 'btn btn-primary', 'data-disable-with': '作成' %>
+      <% end %>
     </div>
   </div>
 </div>
