@@ -1,7 +1,7 @@
 <div class='container'>
   <div class='row'>
     <div class='col-lg-8 offset-lg-2'>
-      <%= render partial: 'shared/errors_messages', locals: {object: @board} %>
+      <%= render 'shared/errors_messages', object: @board %>
       <h1><%= t('.boards_create') %></h1>
       <%= form_with(url: boards_path, model: @board, local: true) do |form| %>
         <div class='form-group'>
