@@ -24,7 +24,7 @@
           <label for='user_password_confirmation'><%= User.human_attribute_name(:password_confirmation) %></label>
           <%= form.password_field :password_confirmation, class: 'form-control', id: 'user_password_confirmation' %>
         </div>
-        <%= form.submit t('.register'), class: 'btn btn-primary', 'data-disable-with': t('.register') %>
+        <%= form.submit t('.register'), class: 'btn btn-primary' %>
       <% end %>
       <div class='text-center'>
         <%= link_to t('.login_page'), login_path %>
