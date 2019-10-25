@@ -3,6 +3,7 @@ ja:
     new:
       user_create: "ユーザー登録"
       login_page: "ログインページへ"
+      register: "登録"
   user_sessions:
     new:
       login: "ログイン"
@@ -18,3 +19,4 @@ ja:
       boards_create: '掲示板作成'
       boards_title: 'タイトル'
       boards_text: '本文'
+      boards_post: '投稿'
