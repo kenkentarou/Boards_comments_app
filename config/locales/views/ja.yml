@@ -1,19 +1,19 @@
 ja:
   users:
     new:
-      user_create: "ユーザー登録"
-      login_page: "ログインページへ"
-      register: "登録"
+      user_create: 'ユーザー登録'
+      login_page: 'ログインページへ'
+      register: '登録'
   user_sessions:
     new:
-      login: "ログイン"
-      create_page: "登録ページへ"
-      password_forget: "パスワードをお忘れの方はこちら"
+      login: 'ログイン'
+      create_page: '登録ページへ'
+      password_forget: 'パスワードをお忘れの方はこちら'
   time:
     formats:
-      default: "%Y/%m/%d %H:%M:%S"
-      long: "%Y年%m月%d日(%a) %H時%M分%S秒 %z"
-      short: "%y/%m/%d %H:%M"
+      default: '%Y/%m/%d %H:%M:%S'
+      long: '%Y年%m月%d日(%a) %H時%M分%S秒 %z'
+      short: '%y/%m/%d %H:%M'
   boards:
     new:
       boards_create: '掲示板作成'
