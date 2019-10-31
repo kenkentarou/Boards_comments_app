@@ -10,13 +10,19 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = current_user.boards.new(board_params)
+    @board = current_user.boards.build(board_params)
     if @board.save
       redirect_to(boards_path, success: '掲示板の作成が完了しました')
     else
       flash.now[:danger] = '掲示板を作成できませんでした'
       render :new
     end
+  end
+
+  def show
+    @board = Board.find(params[:id])
+    @comment = Comment.new
+    @comments = @board.comments.includes(:user).all.order(created_at: :desc)
   end
 
   private
