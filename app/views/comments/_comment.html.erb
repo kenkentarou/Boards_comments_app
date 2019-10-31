@@ -1,0 +1,33 @@
+<tr id="comment-25">
+  <td style="width: 60px">
+    <%= image_tag('sample.jpg', class: 'rounded-circle', width: '50', height: '50') %>
+  </td>
+  <td>
+    <h3 class="small"><%= comment.user.last_name %><%= comment.user.first_name %></h3>
+    <div id="js-comment-25">
+      <p><%= comment.body %></p>
+    </div>
+    <div style="display: none;">
+      <%= form_with(model: [@board, @comment], local: true) do |form| %>
+        <%= form.text_area :body, class: 'form-control mb-1' %>
+        <button class="btn btn-light">キャンセル</button>
+        <button class="btn btn-success">更新</button>
+      <% end %>
+    </div>
+  </td>
+  <!-- ボタン-->
+  <% if comment.user_id == current_user.id %>
+    <td class="action">
+      <ul class="list-inline justify-content-center" style="float: right;">
+        <li class="list-inline-item">
+          <a href="#"><i class='fa fa-pencil'></i></a>
+        </li>
+        <li class="list-inline-item">
+          <a href="#">
+            <i class="fa fa-trash"></i>
+          </a>
+        </li>
+      </ul>
+    </td>
+  <% end %>
+</tr>
