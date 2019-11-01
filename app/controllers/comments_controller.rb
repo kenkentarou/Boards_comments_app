@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
   def create
     @comment = current_user.comments.build(comment_params)
     if @comment.save
@@ -7,9 +6,6 @@ class CommentsController < ApplicationController
     else
       redirect_to board_path(params[:board_id]), danger: 'コメントの作成に失敗しました'
     end
-  end
-
-  def destroy;
   end
 
   private
