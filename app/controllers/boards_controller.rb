@@ -26,8 +26,7 @@ class BoardsController < ApplicationController
     @comments = @board.comments.includes(:user).all.order(created_at: :desc)
   end
 
-  def edit;
-  end
+  def edit; end
 
   def update
     if @board.update(board_params)
