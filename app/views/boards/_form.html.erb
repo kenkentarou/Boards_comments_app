@@ -1,0 +1,23 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-lg-8 offset-lg-2'>
+      <%= render 'shared/errors_messages', object: @board %>
+      <h1><%= t('.boards_create') %></h1>
+      <%= form_with(model: @board, local: true) do |form| %>
+        <div class='form-group'>
+          <label for='board_title'><%= t('.boards_title') %></label>
+          <%= form.text_field :title, class: 'form-control', id: 'board_title' %>
+        </div>
+        <div class='form-group'>
+          <label for='board_body'><%= t('.boards_text') %></label>
+          <%= form.text_area :body, class: 'form-control', row: '10', heigth: '200px', id: 'board_body' %>
+        </div>
+        <%= form.file_field :board_image, class: 'form-control', id: 'js-board-img' %>
+        <div class='mt-3 mb-3'>
+          <%= image_tag @board.board_image.url, class: 'rounded-circle', id: 'js-img-prev', size: '100x100' %>
+        </div>
+        <%= form.submit t('.boards_post'), class: 'btn btn-primary' %>
+      <% end %>
+    </div>
+  </div>
+</div>
