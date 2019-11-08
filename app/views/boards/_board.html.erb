@@ -8,17 +8,10 @@
           <%= link_to board.title, board_path(board.id) %>
         </h4>
         <div class='d-inline float-right'>
-          <% if board.user_id == current_user.id %>
-            <%= link_to edit_board_path(board.id) do %>
-              <i class='fa fa-pencil'></i>
-            <% end %>
-            <%= link_to board_path(board.id), data: {confirm: '本当に実行して大丈夫ですか?'}, method: :delete do %>
-              <i class='fa fa-trash'></i>
-            <% end %>
+          <% if current_user.own_board?(board) %>
+            <%= render 'boards/edit_destroy_button', board: board %>
           <% else %>
-            <%= link_to '#', id: 'bookmark-link', 'data-remote': true, rel: 'nofollow', method: :post do %>
-              <i class='fa fa-star-o'></i>
-            <% end %>
+            <%= render 'boards/bookmark_button' %>
           <% end %>
         </div>
 
