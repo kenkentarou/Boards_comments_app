@@ -1,4 +1,9 @@
-<% content_for :title do %>
-  掲示板編集
-<% end %>
-<%= render 'boards/form' %>
+<% content_for(:title, '掲示板編集') %>
+<div class='container'>
+  <div class='row'>
+    <div class='col-lg-8 offset-lg-2'>
+      <h1><%= t('.boards_create') %></h1>
+      <%= render 'boards/form', board: @board %>
+    </div>
+  </div>
+</div>
