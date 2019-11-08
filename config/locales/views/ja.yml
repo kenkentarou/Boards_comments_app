@@ -16,7 +16,10 @@ ja:
       short: '%y/%m/%d %H:%M'
   boards:
     form:
-      boards_create: '掲示板作成'
       boards_title: 'タイトル'
       boards_text: '本文'
       boards_post: '投稿'
+    new:
+      boards_create: '掲示板作成'
+    edit:
+      boards_create: '掲示板作成'
