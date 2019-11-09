@@ -1,6 +1,6 @@
 
 <div class='col-sm-12 col-md-6 col-lg-4 mb-3'>
-  <div id='product-id-33'>
+  <div id=<%= "product-id-#{board.id}" %>>
     <div class='card'>
       　<%= image_tag("#{board.board_image}", class: 'card-img-top', size: '300x200') %>
       <div class='card-body'>
@@ -8,8 +8,10 @@
           <%= link_to board.title, board_path(board.id) %>
         </h4>
         <div class='d-inline float-right'>
-          <%= link_to '#', id: 'bookmark-link', 'data-remote': true, rel: 'nofollow', method: :post do %>
-            <i class='fa fa-star-o'></i>
+          <% if current_user.own_board?(board) %>
+            <%= render 'boards/edit_destroy_button', board: board %>
+          <% else %>
+            <%= render 'boards/bookmark_button' %>
           <% end %>
         </div>
 

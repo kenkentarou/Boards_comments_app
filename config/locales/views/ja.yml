@@ -15,8 +15,11 @@ ja:
       long: '%Y年%m月%d日(%a) %H時%M分%S秒 %z'
       short: '%y/%m/%d %H:%M'
   boards:
-    new:
-      boards_create: '掲示板作成'
+    form:
       boards_title: 'タイトル'
       boards_text: '本文'
       boards_post: '投稿'
+    new:
+      boards_create: '掲示板作成'
+    edit:
+      boards_create: '掲示板作成'
