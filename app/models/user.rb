@@ -15,19 +15,16 @@ class User < ApplicationRecord
     id == board.user_id
   end
 
-  #お気に入り追加
   def like(board)
     bookmarks.find_or_create_by(board_id: board.id)
   end
 
-  #お気に入り削除
   def unlike(board)
     bookmark = bookmarks.find_by(board_id: board.id)
     bookmark.destroy if bookmark
   end
 
-  #お気に入り登録判定
   def bookmarks_board?(board)
-    self.bookmarks_boards.include?(board)
+    bookmarks_boards.include?(board)
   end
 end
