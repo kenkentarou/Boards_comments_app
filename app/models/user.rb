@@ -21,7 +21,7 @@ class User < ApplicationRecord
 
   def unlike(board)
     bookmark = bookmarks.find_by(board_id: board.id)
-    bookmark.destroy if bookmark
+    bookmark&.destroy
   end
 
   def bookmarks_board?(board)
