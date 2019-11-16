@@ -1,6 +1,8 @@
 class User < ApplicationRecord
   has_many :boards, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
+  has_many :bookmark_boards, through: :bookmarks, source: :board
   authenticates_with_sorcery!
   validates :last_name, presence: true
   validates :first_name, presence: true
@@ -11,5 +13,18 @@ class User < ApplicationRecord
 
   def own_board?(board)
     id == board.user_id
+  end
+
+  def like(board)
+    bookmarks.find_or_create_by(board_id: board.id)
+  end
+
+  def unlike(board)
+    bookmark = bookmarks.find_by(board_id: board.id)
+    bookmark&.destroy
+  end
+
+  def bookmark_board?(board)
+    bookmark_boards.include?(board)
   end
 end

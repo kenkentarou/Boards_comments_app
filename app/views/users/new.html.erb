@@ -2,9 +2,9 @@
 <div class='container'>
   <div class='row'>
     <div class='col-md-10 offset-md-1 col-lg-8 offset-lg-2'>
-      <%= render 'shared/errors_messages', object: @user %>
       <h1><%= t('.user_create') %></h1>
       <%= form_with model: @user, local: true do |form| %>
+        <%= render 'shared/errors_messages', model: form.object %>
         <div class='form-group'>
           <label for='user_last_name'><%= User.human_attribute_name(:last_name) %></label>
           <%= form.text_field :last_name, class: 'form-control', id: 'user_last_name' %>

@@ -42,6 +42,10 @@ class BoardsController < ApplicationController
     redirect_to(boards_path, success: '掲示板を削除しました')
   end
 
+  def bookmarks
+    @bookmark_boards = current_user.bookmark_boards
+  end
+
   private
 
   def board_params
