@@ -2,7 +2,7 @@ class User < ApplicationRecord
   has_many :boards, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
-  has_many :bookmarks_boards, through: :bookmarks, source: :board
+  has_many :bookmark_boards, through: :bookmarks, source: :board
   authenticates_with_sorcery!
   validates :last_name, presence: true
   validates :first_name, presence: true
@@ -24,7 +24,7 @@ class User < ApplicationRecord
     bookmark&.destroy
   end
 
-  def bookmarks_board?(board)
-    bookmarks_boards.include?(board)
+  def bookmark_board?(board)
+    bookmark_boards.include?(board)
   end
 end

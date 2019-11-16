@@ -43,7 +43,7 @@ class BoardsController < ApplicationController
   end
 
   def bookmarks
-    @bookmarks_boards = current_user.bookmarks_boards
+    @bookmark_boards = current_user.bookmark_boards
   end
 
   private
