@@ -1,18 +1,17 @@
 class BookmarksController < ApplicationController
   def create
     board = Board.find(params[:board_id])
-    if current_user.like(board)
-      flash[:success] = 'お気に入り登録をしました。'
-    else
-      flash[:danger] = 'お気に入り失敗しました。'
+    current_user.like(board)
+    respond_to do |format|
+      format.js { render :template => "bookmarks/create", locals: {board: board} }
     end
-    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     board = Board.find(params[:id])
     current_user.unlike(board)
-    flash[:success] = 'お気に入り登録を解除しました。'
-    redirect_back(fallback_location: root_path)
+    respond_to do |format|
+      format.js { render :template => "bookmarks/destroy", locals: {board: board} }
+    end
   end
 end
