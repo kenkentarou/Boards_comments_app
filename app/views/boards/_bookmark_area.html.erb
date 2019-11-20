@@ -1,7 +1,5 @@
-<div id='bookmark_btn_<%= board.id %>'>
 <% if current_user.bookmark_board?(board) %>
     <%= render 'boards/unbookmark', board: board %>
 <% else %>
     <%= render 'boards/bookmark', board: board %>
 <% end %>
-</div>
