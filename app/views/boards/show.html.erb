@@ -16,7 +16,7 @@
                 <% if current_user.own_board?(@board) %>
                   <%= render 'boards/edit_destroy_button', board: @board %>
                 <% else %>
-                  <%= render 'boards/bookmark_button', board: @board %>
+                  <%= render 'boards/bookmark_area', board: @board %>
                 <% end %>
               </div>
               <ul class='list-inline'>

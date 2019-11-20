@@ -1,3 +1,5 @@
-<%= link_to bookmarks_path(board_id: board.id), method: :post do %>
-  <i class='fa fa-star-o'></i>
+<div id='bookmark_btn_<%= board.id %>'>
+<%= link_to bookmarks_path(board_id: board.id), method: :post, remote: true do %>
+    <i class='fa fa-star-o'></i>
 <% end %>
+</div>
