@@ -17,7 +17,7 @@ $(function () {
 })
 
 $(function () {
-    $('.js-button-comment-update').on('click', function () {
+    $(document).on('click', '.js-button-comment-update', function () {
         var id = $(this).data('comment-id');
         var textField = $('#js-textarea-comment-' + id);
         var body = textField.val();
