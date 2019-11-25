@@ -1,9 +1,10 @@
 <!-- コメントフォーム -->
 <div class='row mb-3'>
   <div class='col-lg-8 offset-lg-2'>
-    <%= form_with(model: [@board, @comment]) do |form| %>
+    <%= form_with(model: [board, comment]) do |form| %>
       <%= render 'shared/errors_messages', model: form.object %>
-      <label for='comment_body'>コメント</label>
+      <%= form.label :body, class: 'comment_body' %>
+      <!--      <label for='comment_body'>コメント</label>-->
       <%= form.text_area :body, class: 'form-control mb-3', row: '4', placeholder: 'コメント' %>
       <%= form.submit '投稿', class: 'btn btn-primary' %>
     <% end %>

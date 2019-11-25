@@ -19,8 +19,8 @@ $(function () {
 $(function () {
     $(document).on('click', '.js-button-comment-update', function () {
         var id = $(this).data('comment-id');
-        var textField = $('#js-textarea-comment-' + id);
-        var body = textField.val();
+        const textField = $('#js-textarea-comment-' + id);
+        const body = textField.val();
         $.ajax({
             type: 'PUT',
             url: '/comments/' + id,
@@ -31,7 +31,6 @@ $(function () {
             }
         }).done(function () {
             // 成功処理
-            textField.val('');  //テキストフィールドを空にする
             $('#js-textarea-comment-box-' + id).hide();
             $('#js-comment-' + id).text(body);
             $('#js-comment-' + id).show();
