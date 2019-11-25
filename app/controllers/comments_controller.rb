@@ -4,11 +4,6 @@ class CommentsController < ApplicationController
     @comment.save
   end
 
-  def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
-  end
-
   def update
     @comment = current_user.comments.find(params[:id])
     if @comment.update(comment_update_params)
@@ -16,6 +11,11 @@ class CommentsController < ApplicationController
     else
       render json: {}, status: :bad_request
     end
+  end
+
+  def destroy!
+    @comment = Comment.find(params[:id])
+    @comment.destroy
   end
 
   private
