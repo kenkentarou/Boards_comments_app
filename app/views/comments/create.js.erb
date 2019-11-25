@@ -1,8 +1,8 @@
 <% if @comment.errors.any? %>
-$('.alert-danger').remove();
-$('.js-comment-body').after("<%= j(render 'shared/errors_messages', { model: @comment }) %>");
+  $('#error_messages').remove();
+  $('.js-comment-body').after("<%= j(render 'shared/errors_messages', { model: @comment }) %>");
 <% else %>
-$('.alert-danger').remove();
-$('#js-table-comment').prepend('<%= j(render @comment)%>');
-$(comment_body).val('');
+  $('#error_messages').remove();
+  $('#js-table-comment').prepend('<%= j(render @comment)%>');
+  $(comment_body).val('');
 <% end %>
