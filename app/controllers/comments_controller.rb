@@ -13,9 +13,9 @@ class CommentsController < ApplicationController
     end
   end
 
-  def destroy!
+  def destroy
     @comment = Comment.find(params[:id])
-    @comment.destroy
+    @comment.destroy!
   end
 
   private
