@@ -1,6 +1,8 @@
 <% if @comment.errors.any? %>
-$('.card').after("<%= j(render 'shared/errors_messages', { model: @comment }) %>");
+$('.alert-danger').remove();
+$('.js-comment-body').after("<%= j(render 'shared/errors_messages', { model: @comment }) %>");
 <% else %>
+$('.alert-danger').remove();
 $('#js-table-comment').prepend('<%= j(render @comment)%>');
-$("#comment_body").val('');
+$(comment_body).val('');
 <% end %>
