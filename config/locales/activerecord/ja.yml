@@ -1,20 +1,22 @@
 ja:
   activerecord:
     models:
-      user: "ユーザー"
-      board: "掲示板"
+      user: 'ユーザー'
+      board: '掲示板'
     attributes:
       user:
-        id: "ID"
-        first_name: "名前"
-        last_name: "姓"
-        email: "メールアドレス"
-        password: "パスワード"
-        password_confirmation: "パスワード確認"
-        file: "プロフィール画像"
-        crypted_password: "パスワード"
-        created_at: "作成日"
-        updated_at: "更新日"
+        id: 'ID'
+        first_name: '名前'
+        last_name: '姓'
+        email: 'メールアドレス'
+        password: 'パスワード'
+        password_confirmation: 'パスワード確認'
+        file: 'プロフィール画像'
+        crypted_password: 'パスワード'
+        created_at: '作成日'
+        updated_at: '更新日'
       board:
-        title: タイトル
-        body: 本文
+        title: 'タイトル'
+        body: '本文'
+      comment:
+        body: 'コメント'

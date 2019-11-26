@@ -1,18 +1,30 @@
 class CommentsController < ApplicationController
   def create
     @comment = current_user.comments.build(comment_params)
-    if @comment.save
-      redirect_to board_path(params[:board_id]), success: 'コメントを作成しました'
+    @comment.save
+  end
+
+  def update
+    @comment = current_user.comments.find(params[:id])
+    if @comment.update(comment_update_params)
+      head :ok
     else
-      redirect_to board_path(params[:board_id]), danger: 'コメントの作成に失敗しました'
+      head :bad_request
     end
   end
 
-  def destroy; end
+  def destroy
+    @comment = Comment.find(params[:id])
+    @comment.destroy!
+  end
 
   private
 
   def comment_params
     params.require(:comment).permit(:body).merge(board_id: params[:board_id])
+  end
+
+  def comment_update_params
+    params.require(:comment).permit(:body)
   end
 end

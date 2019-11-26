@@ -1,0 +1,8 @@
+<% if @comment.errors.any? %>
+  $('#error_messages').remove();
+  $('.js-comment-body').after("<%= j(render 'shared/errors_messages', { model: @comment }) %>");
+<% else %>
+  $('#error_messages').remove();
+  $('#js-table-comment').prepend('<%= j(render @comment)%>');
+  $(comment_body).val('');
+<% end %>
