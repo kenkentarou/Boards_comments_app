@@ -4,6 +4,8 @@ class BoardsController < ApplicationController
 
   def index
     @boards = Board.all.includes(:user).page(params[:page])
+    @search = Board.ransack(params[:q])
+    @boards = @search.result(distinct: true).page(params[:page])
   end
 
   def new
@@ -44,6 +46,7 @@ class BoardsController < ApplicationController
 
   def bookmarks
     @bookmark_boards = current_user.bookmark_boards
+    @search = Board.ransack(params[:q])
   end
 
   private
