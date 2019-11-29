@@ -46,7 +46,8 @@ class BoardsController < ApplicationController
 
   def bookmarks
     @bookmark_boards = current_user.bookmark_boards
-    @search = Board.ransack(params[:q])
+    @search = @bookmark_boards.ransack(params[:q])
+    @bookmark_boards = @search.result.includes(:users).page(params[:page])
   end
 
   private
