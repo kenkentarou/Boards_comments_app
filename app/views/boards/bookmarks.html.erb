@@ -3,9 +3,7 @@
   <div class='row'>
     <div class='col-lg-10 offset-lg-1'>
       <!-- 検索フォーム -->
-      <%= search_form_for @search, url: bookmarks_boards_path do |f| %>
-        <%= render 'search_form', url: bookmarks_boards_path, f: f %>
-      <% end %>
+      <%= render 'search_form', url: bookmarks_boards_path, search: @search %>
     </div>
   </div>
   <!-- 掲示板一覧 -->
