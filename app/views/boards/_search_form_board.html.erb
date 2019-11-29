@@ -1,0 +1,8 @@
+<%= search_form_for search do |f| %>
+  <div class='input-group mb-3'>
+    <%= f.search_field :title_or_body_cont, placeholder: "検索ワード", class: 'form-control' %>
+    <div class='input-group-append'>
+      <%= f.submit value: "検索", class: 'btn btn-primary' %>
+    </div>
+  </div>
+<% end %>
