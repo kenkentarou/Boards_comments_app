@@ -4,7 +4,7 @@
     <div class='col-lg-8 offset-lg-2'>
       <h1><%= t('.profiles_edit') %></h1>
       <%= form_with(model: current_user, url: profile_path, local: true) do |form| %>
-
+        <%= render 'shared/errors_messages', model: form.object %>
         <div class='form-group'>
           <label for='user_email'><%= User.human_attribute_name(:email) %></label>
           <%= form.email_field :email, class: 'form-control', id: 'user_email' %>
