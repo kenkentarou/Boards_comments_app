@@ -9,7 +9,7 @@ $(function () {
         }
     }
 
-    $('#js-board-img').change(function () {
+  $('#js-common-img').change(function () {
         readURL(this);
     });
 })

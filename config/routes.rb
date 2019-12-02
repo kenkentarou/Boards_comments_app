@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   post 'login', to: 'user_sessions#create'
   post 'logout', to: 'user_sessions#destroy'
   resources :bookmarks, only: %i[create destroy]
+  resource :profile, only: %i[show edit update]
 end
