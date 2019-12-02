@@ -23,3 +23,12 @@ ja:
       boards_create: '掲示板作成'
     edit:
       boards_create: '掲示板作成'
+  profiles:
+    show:
+      profiles: 'プロフィール'
+      name: '氏名'
+      email: 'メールアドレス'
+      profiles_image: 'プロフィール画像'
+    edit:
+      profiles_edit: 'プロフィール編集'
+      update: '更新'
