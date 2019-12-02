@@ -17,4 +17,5 @@
 //= require activestorage
 //= require board
 //= require comment
+//= require user
 //= require cable
