@@ -14,7 +14,6 @@ class PasswordResetsController < ApplicationController
     return unless @user.blank?
 
     not_authenticated
-
   end
 
   def update
