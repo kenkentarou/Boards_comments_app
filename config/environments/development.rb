@@ -6,7 +6,7 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.action_mailer.perform_caching = false
 
-  config.action_mailer.default_url_options = {host: Settings.host}
+  config.action_mailer.default_url_options = { host: Settings.host }
   config.action_mailer.delivery_method = :letter_opener_web
 
   config.cache_classes = false

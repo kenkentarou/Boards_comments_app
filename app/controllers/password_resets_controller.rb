@@ -1,7 +1,9 @@
 class PasswordResetsController < ApplicationController
+  def new; end
+
   def create
     @user = User.find_by_email(params[:email])
-    @user.deliver_reset_password_instructions! if @user
+    @user&.deliver_reset_password_instructions!
     redirect_to(root_path, success: 'パスワードのリセット手順を送信しました')
   end
 
@@ -9,10 +11,9 @@ class PasswordResetsController < ApplicationController
     @token = params[:id]
     @user = User.load_from_reset_password_token(params[:id])
 
-    if @user.blank?
-      not_authenticated
-      return
-    end
+    return unless @user.blank?
+    not_authenticated
+    return
   end
 
   def update
