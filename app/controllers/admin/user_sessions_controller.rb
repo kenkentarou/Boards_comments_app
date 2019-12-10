@@ -1,4 +1,5 @@
-class Admin::UserSessionsController < AdminController
+class Admin::UserSessionsController < Admin::AdminController
+  skip_before_action :authenticate_user, raise: false
   layout 'admin/layouts/admin_login'
 
   def new

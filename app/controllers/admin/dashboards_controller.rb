@@ -1,5 +1,4 @@
-class Admin::DashboardsController < Admin::BaseController
-  before_action :authenticate_user
+class Admin::DashboardsController < Admin::AdminController
   layout 'admin/layouts/admin'
 
   def index;
