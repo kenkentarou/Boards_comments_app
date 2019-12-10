@@ -11,5 +11,9 @@ Rails.application.routes.draw do
   resources :bookmarks, only: %i[create destroy]
   resource :profile, only: %i[show edit update]
   resources :password_resets, only: %i[new create edit update]
+  get 'admin', to: 'admin/dashboards#index'
+  get 'admin/login', to: 'admin/user_sessions#new'
+  post 'admin/login', to: 'admin/user_sessions#create'
+  post 'admin/logout', to: 'admin/user_sessions#destroy'
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
