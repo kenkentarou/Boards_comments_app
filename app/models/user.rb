@@ -13,7 +13,7 @@ class User < ApplicationRecord
   validates :email, presence: true, uniqueness: { scope: :reset_password_token }
 
   enum role: { general: 0,
-                 admin: 1 }
+               admin: 1 }
 
   def own_board?(board)
     id == board.user_id
