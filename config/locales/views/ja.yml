@@ -34,5 +34,5 @@ ja:
       update: '更新'
   admin:
     user_sessions:
-      new:
+      form:
         login: 'ログイン'
