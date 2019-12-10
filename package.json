@@ -1,5 +1,12 @@
 {
   "name": "runteq_normal",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "admin-lte": "^3.0.1"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/runteq/2_daikentarou.git",
+  "author": "Taro <zettaigoukaku547@gmail.com>",
+  "license": "MIT"
 }
