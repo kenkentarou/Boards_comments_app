@@ -9,13 +9,7 @@
   <%= javascript_include_tag 'admin' %>
 </head>
 <body>
-<%# if logged_in? %>
-<%#= render 'shared/header' %>
-<%# else %>
-<%#= render 'shared/before_login_header' %>
-<%# end %>
-<%#= render 'shared/flash_message' %>
 <%= yield %>
-<%#= render 'shared/footer' %>
+<%= render 'admin/shared/footer' %>
 </body>
 </html>

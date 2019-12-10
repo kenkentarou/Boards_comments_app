@@ -1,89 +1,16 @@
 <body class='hold-transition sidebar-mini'>
 <div class='wrapper'>
-
-  <nav class='main-header navbar navbar-expand bg-white navbar-light border-bottom'>
-    <!-- Left navbar links -->
-    <ul class='navbar-nav'>
-      <li class='nav-item'>
-        <a class='nav-link' data-widget='pushmenu' href='#'><i class='fa fa-bars'></i></a>
-      </li>
-    </ul>
-
-    <!-- Right navbar links -->
-    <ul class='navbar-nav ml-auto'>
-      <li class='nav-item'>
-        <%= link_to 'ログアウト', admin_logout_path, class: 'nav-link', method: :post %>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class='main-sidebar sidebar-dark-primary elevation-4'>
-    <!-- Brand Logo -->
-    <a class='brand-link' href='/admin'>
-      <img class='brand-image img-circle elevation-3' style='opacity: .8' src='/assets/AdminLTELogo-92af06833886bd48cb14b00faa6d70220b3eb7a651f12c5d6f38501ac910dd6b.png'/>
-      <span class='brand-text font-weight-light'>AdminLTE 3</span>
-    </a>
-    <!-- Sidebar -->
-    <div class='sidebar'>
-      <!-- Sidebar user panel (optional) -->
-      <div class='user-panel mt-3 pb-3 mb-3 d-flex'>
-        <div class='image'>
-          <img class='img-circle elevation-2' src='/assets/sample-08ca6735af47bfefce4c43e3de2182768289121aa057f141b7f4704a89670827.jpg'/>
-        </div>
-        <div class='info'>
-          <%= link_to '#', class: 'd-block' do %>
-            <%= current_user.last_name %><%= current_user.first_name %>
-          <% end %>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class='mt-2'>
-        <ul class='nav nav-pills nav-sidebar flex-column' data-widget='treeview' role='menu' data-accordion='false'>
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class='nav-item'>
-            <a class='nav-link ' href='/admin/boards'>
-              <i class='nav-icon fa fa-file-o'></i>
-              <p>
-                掲示板一覧
-              </p>
-            </a></li>
-          <li class='nav-item'>
-            <a class='nav-link ' href='/admin/users'>
-              <i class='nav-icon fa fa-user-o'></i>
-              <p>
-                ユーザー一覧
-              </p>
-            </a></li>
-        </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
-
-
+  <%= render 'admin/shared/header' %>
+  <%= render 'admin/shared/sidebar' %>
   <!-- Content Wrapper. Contains page content -->
   <div class='content-wrapper'>
-    <div class='alert alert-success'>ログインしました</div>
-
+    <%= render 'shared/flash_message' %>
     <div class='container'>
       <div class='row'>
         ダッシュボードです
       </div>
     </div>
-
   </div>
   <!-- /.content-wrapper -->
-
-  <footer class='main-footer'>
-    <div class='float-right d-none d-sm-inline'>
-      Anything you want
-    </div>
-    <strong>Copyright &copy; 2014-2018 <a href='https://adminlte.io'>AdminLTE.io</a>.</strong> All rights reserved.
-  </footer>
 </div>
 </body>
