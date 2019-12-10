@@ -1,0 +1,25 @@
+<body class="hold-transition login-page">
+<div class="login-box">
+  <div class="login-logo">
+    <h2>ログイン</h2>
+  </div>
+  <div class="card">
+    <div class="card-body login-card-body">
+      <%= form_with(url: admin_login_path, local: true) do |form| %>
+        <div class='form-group'>
+          <label for='email'><%= User.human_attribute_name(:email) %></label>
+          <%= form.text_field :email, class: 'form-control' %>
+        </div>
+        <div class='form-group'>
+          <label for='password'><%= User.human_attribute_name(:password) %></label>
+          <%= form.password_field :password, class: 'form-control' %>
+        </div>
+        <div class='actions'>
+          <%= form.submit t('.login'), class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+</div>
+</body>
