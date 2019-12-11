@@ -1,5 +1,7 @@
 class Admin::DashboardsController < Admin::AdminController
   layout 'admin/layouts/admin'
-
-  def index; end
+  #before_action :authenticate_user
+  #before_action :require_login
+  def index;
+  end
 end

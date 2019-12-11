@@ -1,5 +1,7 @@
 class Admin::UserSessionsController < Admin::AdminController
-  skip_before_action :authenticate_user, raise: false
+  #skip_before_action :authenticate_user, raise: false
+  #skip_before_action :authenticate_user, only: [:new, :create]
+  #skip_before_action :require_login, only: [:new, :create]
   layout 'admin/layouts/admin_login'
 
   def new
