@@ -1,6 +1,7 @@
 class Admin::AdminController < ApplicationController
-  before_action :authenticate_user
+  layout 'admin/layouts/admin'
   before_action :require_login
+  before_action :authenticate_user
 
   private
 
