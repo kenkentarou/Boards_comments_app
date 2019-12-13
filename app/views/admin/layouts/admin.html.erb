@@ -8,8 +8,13 @@
   <%= stylesheet_link_tag 'admin', media: 'all' %>
   <%= javascript_include_tag 'admin' %>
 </head>
-<body>
-<%= yield %>
-<%= render 'admin/shared/footer' %>
+<body class='hold-transition sidebar-mini'>
+<div class='wrapper'>
+  <%= render 'admin/shared/header' %>
+  <%= render 'admin/shared/sidebar' %>
+  <%= render 'shared/flash_message' %>
+  <%= yield %>
+  <%= render 'admin/shared/footer' %>
+</div>
 </body>
 </html>
