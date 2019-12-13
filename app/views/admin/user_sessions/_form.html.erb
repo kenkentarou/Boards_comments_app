@@ -1,5 +1,4 @@
 <%= form_with(url: admin_login_path, local: true) do |form| %>
-  <%= render 'shared/flash_message' %>
   <div class='form-group'>
     <label for='email'><%= User.human_attribute_name(:email) %></label>
     <%= form.text_field :email, class: 'form-control' %>

@@ -33,6 +33,20 @@ ja:
       profiles_edit: 'プロフィール編集'
       update: '更新'
   admin:
+    users:
+      form:
+        update: '更新'
     user_sessions:
       form:
         login: 'ログイン'
+    boards:
+      form:
+        title: 'タイトル'
+        body: '本文'
+        image: 'サムネイル'
+        update: '更新する'
+  enums:
+    user:
+      role:
+        general: 一般
+        admin: 管理者
