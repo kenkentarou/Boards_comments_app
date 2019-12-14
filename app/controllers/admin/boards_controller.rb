@@ -4,7 +4,7 @@ class Admin::BoardsController < Admin::AdminController
 
   def index
     search_options = { created_after: params[:created_after],
-                      created_before: params[:created_before] }
+                       created_before: params[:created_before] }
     @search = Board.ransack(params[:q], search_options)
     @boards = @search.result.includes(:users).order(created_at: :desc).page(params[:page])
   end
