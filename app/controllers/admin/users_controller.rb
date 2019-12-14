@@ -7,11 +7,9 @@ class Admin::UsersController < Admin::AdminController
     @users = @search.result.includes(:boards).order(created_at: :desc).page(params[:page])
   end
 
-  def show;
-  end
+  def show; end
 
-  def edit;
-  end
+  def edit; end
 
   def update
     if @user.update(user_update_params)

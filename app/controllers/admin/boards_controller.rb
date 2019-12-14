@@ -3,19 +3,15 @@ class Admin::BoardsController < Admin::AdminController
   before_action :set_board, only: %i[show edit update destroy]
 
   def index
-    search_options = {
-        created_after: params[:created_after],
-        created_before: params[:created_before]
-    }
+    search_options = { created_after: params[:created_after],
+                      created_before: params[:created_before] }
     @search = Board.ransack(params[:q], search_options)
     @boards = @search.result.includes(:users).order(created_at: :desc).page(params[:page])
   end
 
-  def show;
-  end
+  def show; end
 
-  def edit;
-  end
+  def edit; end
 
   def update
     if @board.update(board_params)
