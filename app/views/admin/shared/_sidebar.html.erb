@@ -25,7 +25,7 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <li class='nav-item'>
-          <%= link_to admin_boards_path, class: "nav-link #{active?('admin/boards')}" do %>
+          <%= link_to admin_boards_path, class: "nav-link #{active('admin/boards')}" do %>
             <i class='nav-icon fa fa-file-o'></i>
             <p>
               掲示板一覧
@@ -33,7 +33,7 @@
           <% end %>
         </li>
         <li class='nav-item'>
-          <%= link_to admin_users_path, class: "nav-link #{active?('admin/users')}" do %>
+          <%= link_to admin_users_path, class: "nav-link #{active('admin/users')}" do %>
             <i class='nav-icon fa fa-file-o'></i>
             <p>
               ユーザー一覧

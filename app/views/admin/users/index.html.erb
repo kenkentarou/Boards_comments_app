@@ -12,7 +12,7 @@
                 <%= f.search_field :last_name_or_first_name_cont, placeholder: "検索ワード", class: 'form-control' %>
               </div>
               <div class="col-auto">
-                <%= f.select :role_eq, [['一般', 0], ['管理者', 1]], include_blank: '指定なし', class: 'form-control' %>
+                <%= f.select :role_eq, User.roles_i18n.keys.map { |k| [User.roles_i18n[k], User.roles[k]] }, include_blank: '指定なし', class: 'form-control' %>
               </div>
               <div class="col-auto">
                 <%= f.submit value: "検索", class: 'btn btn-primary' %>

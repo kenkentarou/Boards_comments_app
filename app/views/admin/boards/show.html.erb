@@ -20,7 +20,7 @@
           </tr>
           <tr>
             <th scope="row">作成者</th>
-            <td><%= @board.user.last_name %><%= @board.user.first_name %></td>
+            <td><%= @board.user.decorate.full_name %></td>
           </tr>
           <tr>
             <th scope="row">本文</th>

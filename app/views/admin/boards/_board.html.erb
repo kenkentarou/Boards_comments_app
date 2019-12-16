@@ -4,17 +4,17 @@
     <%= board.id %>
   </td>
   <td>
-    <%= link_to board.title, admin_board_path(board.id) %>
+    <%= link_to board.title, admin_board_path(board) %>
   </td>
   <td>
-    <%= board.user.last_name %><%= board.user.first_name %>
+    <%= board.user.decorate.full_name %>
   </td>
   <td>
     <%= l board.created_at, format: :short %>
   </td>
   <td>
-    <%= link_to '編集', edit_admin_board_path(board.id), class: 'btn btn-success' %>
-    <%= link_to '削除', admin_board_path(board.id), class: 'btn btn-danger', data: {confirm: '本当に実行して大丈夫ですか?'}, method: :delete %>
+    <%= link_to '編集', edit_admin_board_path(board), class: 'btn btn-success' %>
+    <%= link_to '削除', admin_board_path(board), class: 'btn btn-danger', data: {confirm: '本当に実行して大丈夫ですか?'}, method: :delete %>
   </td>
 </tr>
 </tbody>
