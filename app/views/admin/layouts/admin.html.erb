@@ -9,7 +9,13 @@
   <%= javascript_include_tag 'admin' %>
 </head>
 <body>
-<%= yield %>
-<%= render 'admin/shared/footer' %>
+<body class='hold-transition sidebar-mini'>
+<div class='wrapper'>
+  <%= render 'admin/shared/header' %>
+  <%= render 'admin/shared/sidebar' %>
+  <%= yield %>
+  <%= render 'admin/shared/footer' %>
+</div>
+</body>
 </body>
 </html>

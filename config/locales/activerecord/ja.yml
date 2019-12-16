@@ -15,6 +15,7 @@ ja:
         crypted_password: 'パスワード'
         created_at: '作成日'
         updated_at: '更新日'
+        role: '権限'
       board:
         title: 'タイトル'
         body: '本文'

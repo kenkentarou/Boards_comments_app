@@ -2,7 +2,7 @@
 <aside class='main-sidebar sidebar-dark-primary elevation-4'>
   <!-- Brand Logo -->
   <a class='brand-link' href='/admin'>
-    <img class='brand-image img-circle elevation-3' style='opacity: .8' src='/assets/AdminLTELogo-92af06833886bd48cb14b00faa6d70220b3eb7a651f12c5d6f38501ac910dd6b.png'/>
+    <%= image_tag '/assets/AdminLTELogo-92af06833886bd48cb14b00faa6d70220b3eb7a651f12c5d6f38501ac910dd6b.png', class: 'img-circle elevation-2' %>
     <span class='brand-text font-weight-light'>AdminLTE 3</span>
   </a>
   <!-- Sidebar -->
@@ -25,19 +25,21 @@
         <!-- Add icons to the links using the .nav-icon class
              with font-awesome or any other icon font library -->
         <li class='nav-item'>
-          <a class='nav-link ' href='/admin/boards'>
+          <%= link_to admin_boards_path, class: "nav-link #{active('admin/boards')}" do %>
             <i class='nav-icon fa fa-file-o'></i>
             <p>
               掲示板一覧
             </p>
-          </a></li>
+          <% end %>
+        </li>
         <li class='nav-item'>
-          <a class='nav-link ' href='/admin/users'>
-            <i class='nav-icon fa fa-user-o'></i>
+          <%= link_to admin_users_path, class: "nav-link #{active('admin/users')}" do %>
+            <i class='nav-icon fa fa-file-o'></i>
             <p>
               ユーザー一覧
             </p>
-          </a></li>
+          <% end %>
+        </li>
       </ul>
     </nav>
     <!-- /.sidebar-menu -->
