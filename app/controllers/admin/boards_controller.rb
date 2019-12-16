@@ -4,7 +4,7 @@ class Admin::BoardsController < Admin::AdminController
 
   def index
     @search = Board.ransack(params[:q])
-    @boards = @search.result.includes(:users).order(created_at: :desc).page(params[:page])
+    @boards = @search.result.includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def show; end
