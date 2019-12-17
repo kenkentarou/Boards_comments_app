@@ -19,5 +19,6 @@ Rails.application.routes.draw do
     resources :boards, only: %i[index show edit update destroy]
     resources :users, only: %i[index show edit update destroy]
   end
+  get '*path', controller: 'application', action: 'render_404'
   mount LetterOpenerWeb::Engine, at: '/letter_opener' if Rails.env.development?
 end
