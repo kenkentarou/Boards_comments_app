@@ -6,14 +6,13 @@ class ApplicationController < ActionController::Base
     rescue_from ActionController::RoutingError, with: :render_404
   end
 
-  def render_500(e)
-    ExceptionNotifier.notify_exception(e, env: request.env, data: {message: "your error message"})
+  def render_500(exception)
+    ExceptionNotifier.notify_exception(exception, env: request.env, data: {message: 'your error message'})
   end
 
   def render_404
     render template: 'errors/error_404', status: 404, layout: 'application', content_type: 'text/html'
   end
-
 
   private
 
