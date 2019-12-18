@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   end
 
   def render_500(exception)
-    ExceptionNotifier.notify_exception(exception, env: request.env, data: {message: 'your error message'})
+    ExceptionNotifier.notify_exception(exception, env: request.env, data: { message: 'your error message' })
   end
 
   def render_404

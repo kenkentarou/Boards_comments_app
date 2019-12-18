@@ -3,7 +3,7 @@ class BoardsController < ApplicationController
   before_action :set_board, only: %i[edit update destroy]
 
   def index
-    @search = Board.ransack(params[:q])
+    @search = Biioard.ransack(params[:q])
     @boards = @search.result.includes(:users).order(created_at: :desc).page(params[:page])
   end
 
