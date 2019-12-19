@@ -1,6 +1,10 @@
 require 'exception_notification/rails'
 
 ExceptionNotification.configure do |config|
+  config.add_notifier :slack, {
+      webhook_url: Rails.application.credentials.slack[:webhook_url],
+      error_channel: "#基礎編通知"
+  }
   # config.ignore_if do |exception, options|
   #  not Rails.env.production?
   # end
