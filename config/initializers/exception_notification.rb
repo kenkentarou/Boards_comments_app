@@ -6,7 +6,7 @@ ExceptionNotification.configure do |config|
       error_channel: '#基礎編通知'
   }
   # config.ignore_if do |exception, options|
-  #  not Rails.env.production?
+  # not Rails.env.production?
   # end
 
   # Ignore additional exception types.
