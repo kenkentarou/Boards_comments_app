@@ -4,10 +4,11 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = [:reset_password]
+Rails.application.config.sorcery.submodules = [:reset_password, :external]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
+  config.external_providers = [:facebook]
   # -- core --
   # What controller action to call for non-authenticated users. You can also
   # override the 'not_authenticated' method of course.
@@ -112,15 +113,15 @@ Rails.application.config.sorcery.configure do |config|
   # config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
   # config.twitter.user_info_mapping = {:email => "screen_name"}
   #
-  # config.facebook.key = ""
-  # config.facebook.secret = ""
-  # config.facebook.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=facebook"
-  # config.facebook.user_info_path = "me?fields=email"
-  # config.facebook.user_info_mapping = {:email => "email"}
-  # config.facebook.access_permissions = ["email"]
-  # config.facebook.display = "page"
-  # config.facebook.api_version = "v2.3"
-  # config.facebook.parse = :json
+  config.facebook.key = "570986227054258"
+  config.facebook.secret = "b17f723c2a556ffbe5898f92161fb73c"
+  config.facebook.callback_url = "https://localhost:3000/oauth/callback?provider=facebook"
+  config.facebook.user_info_path = "me?fields=email,last_name,first_name"
+  config.facebook.user_info_mapping = {email: 'email', last_name: 'last_name', first_name: 'first_name'}
+  config.facebook.access_permissions = ["email", "public_profile"]
+  config.facebook.display = "page"
+  config.facebook.api_version = "v2.3"
+  config.facebook.parse = :json
   #
   # config.instagram.key = ""
   # config.instagram.secret = ""
@@ -218,6 +219,8 @@ Rails.application.config.sorcery.configure do |config|
   # --- user config ---
   config.user_config do |user|
     user.reset_password_mailer = UserMailer
+    # -- external --
+    user.authentications_class = Authentication
     # -- core --
     # Specify username attributes, for example: [:username, :email].
     # Default: `[:email]`

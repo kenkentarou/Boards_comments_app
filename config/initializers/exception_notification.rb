@@ -5,9 +5,9 @@ ExceptionNotification.configure do |config|
       webhook_url: Rails.application.credentials.slack[:webhook_url],
       error_channel: '#基礎編通知'
   }
-  # config.ignore_if do |exception, options|
-  # not Rails.env.production?
-  # end
+  config.ignore_if do |exception, options|
+    not Rails.env.production?
+  end
 
   # Ignore additional exception types.
   # ActiveRecord::RecordNotFound, Mongoid::Errors::DocumentNotFound, AbstractController::ActionNotFound and ActionController::RoutingError are already added.
