@@ -14,8 +14,8 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :email, presence: true, uniqueness: { scope: :reset_password_token }
 
-  enum role: {general: 0,
-              admin: 1}
+  enum role: { general: 0,
+              admin: 1 }
 
   def own_board?(board)
     id == board.user_id
