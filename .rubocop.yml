@@ -46,3 +46,5 @@ Style/WhileUntilModifier:
   Enabled: false
 Bundler/OrderedGems:
   Enabled: false
+Layout/LineLength:
+  Enabled: false
