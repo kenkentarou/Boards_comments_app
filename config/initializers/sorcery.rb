@@ -117,7 +117,7 @@ Rails.application.config.sorcery.configure do |config|
   config.facebook.secret = 'b17f723c2a556ffbe5898f92161fb73c'
   config.facebook.callback_url = 'https://localhost:3000/oauth/callback?provider=facebook'
   config.facebook.user_info_path = 'me?fields=email,last_name,first_name'
-  config.facebook.user_info_mapping = {email: 'email', last_name: 'last_name', first_name: 'first_name'}
+  config.facebook.user_info_mapping = { email: 'email', last_name: 'last_name', first_name: 'first_name' }
   config.facebook.access_permissions = %w[email public_profile]
   config.facebook.display = 'page'
   config.facebook.api_version = 'v2.3'
