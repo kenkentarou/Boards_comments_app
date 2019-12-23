@@ -7,7 +7,7 @@ class OauthsController < ApplicationController
 
   def callback
     provider = params[:provider]
-    if @user = login_from(provider)
+    if (@user = login_from(provider))
       redirect_to(root_path, success: 'フェイスブックでログインしました')
     else
       begin
@@ -15,7 +15,7 @@ class OauthsController < ApplicationController
         reset_session
         auto_login(@user)
         redirect_to root_path, success: 'フェイスブックでログインしました'
-      rescue
+      rescue StandardError
         redirect_to root_path, danger: 'ログインに失敗しました'
       end
     end
@@ -26,5 +26,4 @@ class OauthsController < ApplicationController
   def auth_params
     params.permit(:code, :provider)
   end
-
 end

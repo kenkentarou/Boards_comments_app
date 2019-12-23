@@ -4,7 +4,7 @@
 # Available submodules are: :user_activation, :http_basic_auth, :remember_me,
 # :reset_password, :session_timeout, :brute_force_protection, :activity_logging,
 # :magic_login, :external
-Rails.application.config.sorcery.submodules = [:reset_password, :external]
+Rails.application.config.sorcery.submodules = %i[reset_password external]
 
 # Here you can configure each submodule's features.
 Rails.application.config.sorcery.configure do |config|
@@ -113,14 +113,14 @@ Rails.application.config.sorcery.configure do |config|
   # config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
   # config.twitter.user_info_mapping = {:email => "screen_name"}
   #
-  config.facebook.key = "570986227054258"
-  config.facebook.secret = "b17f723c2a556ffbe5898f92161fb73c"
-  config.facebook.callback_url = "https://localhost:3000/oauth/callback?provider=facebook"
-  config.facebook.user_info_path = "me?fields=email,last_name,first_name"
+  config.facebook.key = '570986227054258'
+  config.facebook.secret = 'b17f723c2a556ffbe5898f92161fb73c'
+  config.facebook.callback_url = 'https://localhost:3000/oauth/callback?provider=facebook'
+  config.facebook.user_info_path = 'me?fields=email,last_name,first_name'
   config.facebook.user_info_mapping = {email: 'email', last_name: 'last_name', first_name: 'first_name'}
-  config.facebook.access_permissions = ["email", "public_profile"]
-  config.facebook.display = "page"
-  config.facebook.api_version = "v2.3"
+  config.facebook.access_permissions = %w[email public_profile]
+  config.facebook.display = 'page'
+  config.facebook.api_version = 'v2.3'
   config.facebook.parse = :json
   #
   # config.instagram.key = ""
