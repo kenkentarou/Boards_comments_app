@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :bookmark_boards, through: :bookmarks, source: :board
+  has_many :authentications, dependent: :destroy
+  accepts_nested_attributes_for :authentications
   authenticates_with_sorcery!
   validates :last_name, presence: true
   validates :first_name, presence: true
