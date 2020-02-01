@@ -13,7 +13,13 @@
 <div class='wrapper'>
   <%= render 'admin/shared/header' %>
   <%= render 'admin/shared/sidebar' %>
-  <%= yield %>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <%= render 'shared/flash_message' %>
+    <%= yield %>
+  </div>
+
   <%= render 'admin/shared/footer' %>
 </div>
 </body>

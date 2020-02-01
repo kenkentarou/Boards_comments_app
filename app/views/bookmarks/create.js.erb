@@ -1,1 +1,1 @@
-$('#bookmark_btn_<%= @board.id %>').html('<%= j(render 'boards/unbookmark', board: @board)%>');
+$('#bookmark_btn_<%= @board.id %>').replaceWith('<%= j(render 'boards/unbookmark', board: @board)%>');

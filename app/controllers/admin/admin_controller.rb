@@ -6,7 +6,7 @@ class Admin::AdminController < ApplicationController
   private
 
   def authenticate_user
-    redirect_to(root_path, warning: '権限がありません') if current_user.general?
+    redirect_to(root_path, warning: '権限がありません') unless current_user.admin?
   end
 
   def not_authenticated
