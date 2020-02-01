@@ -1,10 +1,9 @@
 class BoardsController < ApplicationController
-  before_action :require_login
   before_action :set_board, only: %i[edit update destroy]
 
   def index
     @search = Board.ransack(params[:q])
-    @boards = @search.result.includes(:users).order(created_at: :desc).page(params[:page])
+    @boards = @search.result(distinct: true).includes(:users).order(created_at: :desc).page(params[:page])
   end
 
   def new
@@ -31,7 +30,7 @@ class BoardsController < ApplicationController
 
   def update
     if @board.update(board_params)
-      redirect_to(board_path(params[:id]), success: '掲示板を更新しました')
+      redirect_to @board, success: '掲示板を更新しました'
     else
       flash.now[:danger] = '掲示板を更新できませんでした'
       render :edit
@@ -45,13 +44,13 @@ class BoardsController < ApplicationController
 
   def bookmarks
     @search = current_user.bookmark_boards.ransack(params[:q])
-    @bookmark_boards = @search.result.includes(:users).order(created_at: :desc).page(params[:page])
+    @bookmark_boards = @search.result(distinct: true).includes(:users).order(created_at: :desc).page(params[:page])
   end
 
   private
 
   def board_params
-    params.require(:board).permit(:title, :body, :board_image)
+    params.require(:board).permit(:title, :body, :board_image, :board_image_cache)
   end
 
   def set_board

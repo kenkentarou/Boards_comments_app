@@ -1,4 +1,4 @@
-<% content_for(:title, '掲示板のタイトル') %>
+<% content_for(:title, @board.title) %>
 <div class='container pt-5'>
   <div class='row mb-3'>
     <div class='col-lg-8 offset-lg-2'>
@@ -13,7 +13,7 @@
             <div class='col-md-9'>
               <h3 style='display: inline;'><%= @board.title %></h3>
               <div class='d-inline float-right'>
-                <% if current_user.own_board?(@board) %>
+                <% if current_user.own?(@board) %>
                   <%= render 'boards/edit_destroy_button', board: @board %>
                 <% else %>
                   <%= render 'boards/bookmark_area', board: @board %>

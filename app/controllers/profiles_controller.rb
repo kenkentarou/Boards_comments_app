@@ -1,12 +1,11 @@
 class ProfilesController < ApplicationController
+  before_action :set_user, only: %i[edit update]
   def show; end
 
-  def edit
-    @user = User.find(current_user.id)
+  def edit;
   end
 
   def update
-    @user = User.find(current_user.id)
     if @user.update(user_update_params)
       redirect_to(profile_path, success: 'プロフィールを更新しました')
     else
@@ -18,6 +17,10 @@ class ProfilesController < ApplicationController
   private
 
   def user_update_params
-    params.require(:user).permit(:first_name, :last_name, :email, :user_image)
+    params.require(:user).permit(:first_name, :last_name, :email, :user_image_cache)
+  end
+
+  def set_user
+    @user = User.find(current_user.id)
   end
 end

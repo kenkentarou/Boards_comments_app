@@ -15,10 +15,10 @@ Rails.application.routes.draw do
   get 'oauth/callback', to: 'oauths#callback'
   get 'oauth/:provider', to: 'oauths#oauth', as: :auth_at_provider
   namespace :admin do
-    root 'dashboards#index'
+    root to: 'dashboards#index'
     get '/login', to: 'user_sessions#new'
     post '/login', to: 'user_sessions#create'
-    post '/logout', to: 'user_sessions#destroy'
+    delete '/logout', to: 'user_sessions#destroy'
     resources :boards, only: %i[index show edit update destroy]
     resources :users, only: %i[index show edit update destroy]
   end

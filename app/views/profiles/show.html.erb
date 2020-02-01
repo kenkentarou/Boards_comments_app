@@ -20,7 +20,7 @@
               <%= t('.name') %>
             </span>
           </th>
-          <td><%= current_user.last_name %><%= current_user.first_name %></td>
+          <td><%= current_user.decorate.full_name %></td>
         </tr>
         <tr>
           <th scope='row'>
@@ -28,7 +28,7 @@
               <%= t('.profiles_image') %>
             </span>
           </th>
-          <td><%= image_tag("#{current_user.user_image}", class: 'rounded-circle', size: '100x100') %></td>
+          <td><%= image_tag current_user.user_image.url, class: 'rounded-circle', size: '100x100' %></td>
         </tr>
         </tbody>
       </table>

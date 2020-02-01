@@ -1,47 +1,43 @@
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-  <%= render 'shared/flash_message' %>
-  <div class="container mb-5 pt-2">
-    <h1>ユーザー一覧</h1>
-    <div class="row">
-      <div class="col-md-12 mb-3">
-        <%= search_form_for @search, url: admin_users_path do |f| %>
-          <div class="row">
-            <div class="form-inline align-items-center mx-auto">
-              <div class="col-auto">
-                <%= f.search_field :last_name_or_first_name_cont, placeholder: "検索ワード", class: 'form-control' %>
-              </div>
-              <div class="col-auto">
-                <%= f.select :role_eq, User.roles_i18n.keys.map { |k| [User.roles_i18n[k], User.roles[k]] }, include_blank: '指定なし', class: 'form-control' %>
-              </div>
-              <div class="col-auto">
-                <%= f.submit value: "検索", class: 'btn btn-primary' %>
-              </div>
+<div class="container mb-5 pt-2">
+  <h1>ユーザー一覧</h1>
+  <div class="row">
+    <div class="col-md-12 mb-3">
+      <%= search_form_for @search, url: admin_users_path do |f| %>
+        <div class="row">
+          <div class="form-inline align-items-center mx-auto">
+            <div class="col-auto">
+              <%= f.search_field :last_name_or_first_name_cont, placeholder: "検索ワード", class: 'form-control' %>
+            </div>
+            <div class="col-auto">
+              <%= f.select :role_eq, User.roles_i18n.keys.map { |k| [User.roles_i18n[k], User.roles[k]] }, include_blank: '指定なし', class: 'form-control' %>
+            </div>
+            <div class="col-auto">
+              <%= f.submit value: "検索", class: 'btn btn-primary' %>
             </div>
           </div>
-        <% end %>
-      </div>
+        </div>
+      <% end %>
     </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <table class="table table-striped">
-          <thead>
-          <tr>
-            <th scope="col">Id</th>
-            <th scope="col">氏名</th>
-            <th scope="col">権限</th>
-            <th scope="col">作成日時</th>
-            <th scope="col"></th>
-          </tr>
-          </thead>
-          <%= render @users %>
-        </table>
-      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <table class="table table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Id</th>
+          <th scope="col">氏名</th>
+          <th scope="col">権限</th>
+          <th scope="col">作成日時</th>
+          <th scope="col"></th>
+        </tr>
+        </thead>
+        <%= render @users %>
+      </table>
     </div>
-    <div class="row">
-      <div class="col-sm-12">
-        <%= paginate @users %>
-      </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-12">
+      <%= paginate @users %>
     </div>
   </div>
 </div>

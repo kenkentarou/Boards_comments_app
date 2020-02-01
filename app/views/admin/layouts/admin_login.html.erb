@@ -8,8 +8,10 @@
   <%= stylesheet_link_tag 'admin', media: 'all' %>
   <%= javascript_include_tag 'admin' %>
 </head>
-<body>
-<%= render 'shared/flash_message' %>
-<%= yield %>
+<body class="hold-transition login-page">
+<div>
+  <%= render 'shared/flash_message' %>
+  <%= yield %>
+</div>
 </body>
 </html>

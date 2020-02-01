@@ -4,7 +4,7 @@ class Admin::BoardsController < Admin::AdminController
 
   def index
     @search = Board.ransack(params[:q])
-    @boards = @search.result.includes(:user).order(created_at: :desc).page(params[:page])
+    @boards = @search.result(distinct: true).includes(:user).order(created_at: :desc).page(params[:page])
   end
 
   def show; end
@@ -28,7 +28,7 @@ class Admin::BoardsController < Admin::AdminController
   private
 
   def board_params
-    params.require(:board).permit(:title, :body, :board_image)
+    params.require(:board).permit(:title, :body, :board_image, :board_image_cache)
   end
 
   def set_board
