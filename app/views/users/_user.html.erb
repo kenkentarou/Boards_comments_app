@@ -1,0 +1,21 @@
+<tbody>
+<tr>
+  <td>
+    <%= user.id %>
+  </td>
+  <td>
+    <%= link_to user_path(user.id) do %>
+      <%= user.last_name %> <%= user.first_name %>
+    <% end %>
+  </td>
+  <td>
+    <%= user.role_i18n %>
+  </td>
+  <td>
+    <%= l user.created_at, format: :short %>
+  </td>
+  <td>
+    <%= link_to '詳細', user_path(user), class: 'btn btn-success' %>
+  </td>
+</tr>
+</tbody>

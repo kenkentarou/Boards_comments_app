@@ -2,30 +2,36 @@
 <div class='container pt-5'>
   <div class='row mb-3'>
     <div class='col-lg-8 offset-lg-2'>
-      <h1>掲示板詳細</h1>
-      <!-- 掲示板内容 -->
+      <h1>投稿の詳細</h1>
+      <!-- 投稿内容 -->
       <article class='js-comment-body'>
         <div class='card-body'>
           <div class='row'>
             <div class='col-md-3'>
-              <%= image_tag('sample.jpg', class: 'card-img-top img-fluid', size: '300x200') %>
+              <%= image_tag @user.user_image.url, class: 'card-img-top img-fluid', size: '300x200' %>
             </div>
             <div class='col-md-9'>
-              <h3 style='display: inline;'><%= @board.title %></h3>
-              <div class='d-inline float-right'>
-                <% if current_user.own?(@board) %>
-                  <%= render 'boards/edit_destroy_button', board: @board %>
-                <% else %>
-                  <%= render 'boards/bookmark_area', board: @board %>
-                <% end %>
-              </div>
-              <ul class='list-inline'>
-                <li class='list-inline-item'>by <%= @board.user_id %></li>
-                <li class='list-inline-item'>2<%= l @board.created_at, format: :short %></li>
+              <ul class="list-group list-group-flush">
+                <li class='list-group-item'>
+                  <h3 style='display: inline;'>タイトル:<%= @board.title %></h3>
+                    <div class='d-inline float-right'>
+                      <% if current_user.own?(@board) %>
+                        <%= render 'boards/edit_destroy_button', board: @board %>
+                      <% else %>
+                        <%= render 'boards/bookmark_area', board: @board %>
+                      <% end %>
+                    </div>
+                </li>
+                <li class='list-group-item'>by <%= @board.user.decorate.full_name %></li>
+                <li class='list-group-item'>更新日:<%= l @board.created_at, format: :short %></li>
               </ul>
             </div>
           </div>
+          <p class='text-info font-weight-bold'>投稿の内容</p>
           <p><%= @board.body %></p>
+          <p class='text-info font-weight-bold'>参考動画</p>
+          <%= content_tag 'iframe', nil, width: '560', height: '315', src: "https://www.youtube.com/embed/#{@board.identifier}", \
+          frameborder: 0, gesture: 'media', allow: 'encrypted-media', allowfullscreen: true %>
         </div>
       </article>
     </div>

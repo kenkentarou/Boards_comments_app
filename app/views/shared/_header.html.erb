@@ -2,7 +2,7 @@
   <nav class='navbar navbar-expand-lg navigation navbar-light bg-light'>
 
     <%= link_to root_path, class: 'navbar-brand' do %>
-    <%= image_tag 'logo.png' %>
+    <%= image_tag 'want_movies.png', 'data-toggle': :tooltip, 'data-placement': :bottom, 'title': 'トップページへ戻る' %>
     <% end %>
     <button class='navbar-toggler' data-toggle='collapse' data-target='#navbarSupportedContent'
       aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
@@ -12,32 +12,41 @@
     <div class='collapse navbar-collapse' id='navbarSupportedContent'>
       <ul class='navbar-nav ml-auto main-nav align-items-center'>
         <li class='nav-item dropdown dropdown-slide'>
-          <%= link_to '#', class: 'nav-link dropdown-toggle', 'data-toggle': :dropdown, 'aria-haspopup': true,
+          <%= link_to '#', class: 'nav-link dropdown-toggle text-primary font-weight-bold', 'data-toggle': :dropdown, 'aria-haspopup': true,
             'aria-expanded': false do %>
-            掲示板
+            投稿
           <% end %>
-          <div class='dropdown-menu dropdown-menu-right'>
-            <%= link_to '掲示板一覧', boards_path, class: 'dropdown-item' %>
-            <%= link_to '掲示板作成', new_board_path, class: 'dropdown-item' %>
+          <div class='dropdown-menu dropdown-menu-right '>
+            <%= link_to '投稿一覧', boards_path, class: 'dropdown-item text-primary' %>
+            <%= link_to '投稿作成', new_board_path, class: 'dropdown-item text-primary' %>
           </div>
         </li>
 
         <li class='nav-item'>
-          <%= link_to 'ブックマーク一覧', bookmarks_boards_path, class: 'nav-link' %>
+          <%= link_to 'Myいいね', bookmarks_boards_path, class:"fa fa-heart", 'data-toggle': :tooltip, 'data-placement': :bottom, 'title': 'あなたが「いいね」した投稿一覧' %>
         </li>
-
+        <li class='nav-item'>
+        <%= link_to "ユーザー一覧", users_path, class:"fas fa-user", 'data-toggle': :tooltip, 'data-placement': :bottom, 'title': '本サービスに登録しているユーザーの一覧' %>
+        </li>
         <li class='nav-item dropdown dropdown-slide'>
           <%= link_to '#', class: 'nav-link', 'data-toggle': :dropdown, 'aria-haspopup': true, 'aria-expanded': false, id: 'header-profiles' do %>
             <%= image_tag(current_user.user_image.url, class: 'rounded-circle mr15', width: '40', height: '40') %>
           <% end %>
           <div class='dropdown-menu dropdown-menu-right'>
-            <div class='dropdown-item'><%= current_user.decorate.full_name %></div>
+            <div class='dropdown-item text-primary'><%= current_user.decorate.full_name %></div>
             <div class='dropdown-divider'></div>
-            <%= link_to 'プロフィール', profile_path, class: 'dropdown-item' %>
-            <%= link_to 'ログアウト', logout_path, class: 'dropdown-item', method: :post %>
+            <%= link_to 'プロフィール', profile_path, class: 'dropdown-item text-primary' %>
+            <%= link_to 'ログアウト', logout_path, class: 'dropdown-item text-primary', method: :post %>
           </div>
         </li>
       </ul>
     </div>
   </nav>
+  <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+  <script type="text/javascript" src="js/bootstrap.bundle.js"></script>
+  <script type="text/javascript">
+    $(function () {
+      $('[data-toggle="tooltip"]').tooltip();
+    });
+  </script>
 </header>

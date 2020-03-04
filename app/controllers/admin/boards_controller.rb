@@ -13,16 +13,16 @@ class Admin::BoardsController < Admin::AdminController
 
   def update
     if @board.update(board_params)
-      redirect_to(admin_board_path(params[:id]), success: '掲示板を更新しました')
+      redirect_to(admin_board_path(params[:id]), success: '投稿を更新しました')
     else
-      flash.now[:danger] = '掲示板を更新できませんでした'
+      flash.now[:danger] = '投稿を更新できませんでした'
       render :edit
     end
   end
 
   def destroy
     @board.destroy!
-    redirect_to(admin_boards_path, success: '掲示板を削除しました')
+    redirect_to(admin_boards_path, success: '投稿を削除しました')
   end
 
   private

@@ -1,5 +1,5 @@
 <div id='bookmark_btn_<%= board.id %>'>
 <%= link_to bookmarks_path(board_id: board.id), method: :post, remote: true do %>
-    <%= icon 'far', 'star' %>
+    <%= icon 'far', 'heart' %>
 <% end %>
 </div>

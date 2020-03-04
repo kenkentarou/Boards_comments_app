@@ -1,5 +1,5 @@
 <%= link_to edit_board_path(board.id), id: "button-edit-#{board.id}" do %>
-  <i class='fa fa-pencil'></i>
+  <i class='fas fa-edit'></i>
 <% end %>
 <%= link_to board_path(board.id), data: {confirm: '本当に実行して大丈夫ですか?'}, id: "button-delete-#{board.id}", method: :delete do %>
   <i class='fa fa-trash'></i>

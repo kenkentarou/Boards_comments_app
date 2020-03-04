@@ -17,13 +17,6 @@
         </div>
       <% end %>
       <div class='text-center'>
-        <%= link_to auth_at_provider_path(provider: :facebook), class: "facebook-button" do %>
-          <i class="fab fa-facebook-f">
-          </i>
-          Facebookログイン
-        <% end %>
-      </div>
-      <div class='text-center'>
         <%= link_to t('.create_page'), new_user_path %>
         <%= link_to t('.password_forget'), new_password_reset_path %>
       </div>

@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     resources :comments, only: %i[create update destroy], shallow: true
   end
   root 'static_pages#top'
-  resources :users, only: %i[new create]
+  resources :users, only: %i[index new create show]
   get 'login', to: 'user_sessions#new'
   post 'login', to: 'user_sessions#create'
   post 'logout', to: 'user_sessions#destroy'

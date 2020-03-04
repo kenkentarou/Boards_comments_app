@@ -20,9 +20,9 @@ ja:
       boards_text: '本文'
       boards_post: '投稿'
     new:
-      boards_create: '掲示板作成'
+      boards_create: '投稿作成'
     edit:
-      boards_create: '掲示板作成'
+      boards_create: '投稿編集'
   profiles:
     show:
       profiles: 'プロフィール'
