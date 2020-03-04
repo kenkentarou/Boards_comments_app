@@ -30,7 +30,7 @@
           <p class='text-info font-weight-bold'>投稿の内容</p>
           <p><%= @board.body %></p>
           <p class='text-info font-weight-bold'>参考動画</p>
-          <%= content_tag 'iframe', nil, width: '560', height: '315', src: "https://www.youtube.com/embed/#{@board.identifier}", \
+          <%= content_tag 'iframe', nil, width: '560', height: '315', src: "https://www.youtube.com/embed/#{@board.split_id_from_youtube_url}", \
           frameborder: 0, gesture: 'media', allow: 'encrypted-media', allowfullscreen: true %>
         </div>
       </article>

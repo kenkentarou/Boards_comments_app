@@ -19,5 +19,6 @@ ja:
       board:
         title: 'タイトル'
         body: '本文'
+        identifier: 'YouTube埋め込みURL'
       comment:
         body: 'コメント'
