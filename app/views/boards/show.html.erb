@@ -13,7 +13,7 @@
             <div class='col-md-9'>
               <ul class="list-group list-group-flush">
                 <li class='list-group-item'>
-                  <h3 style='display: inline;'>タイトル:<%= @board.title %></h3>
+                  <h3 style='display: inline;'><%= @board.title %></h3>
                     <div class='d-inline float-right'>
                       <% if current_user.own?(@board) %>
                         <%= render 'boards/edit_destroy_button', board: @board %>
@@ -30,8 +30,12 @@
           <p class='text-info font-weight-bold'>投稿の内容</p>
           <p><%= @board.body %></p>
           <p class='text-info font-weight-bold'>参考動画</p>
-          <%= content_tag 'iframe', nil, width: '560', height: '315', src: "https://www.youtube.com/embed/#{@board.split_id_from_youtube_url}", \
-          frameborder: 0, gesture: 'media', allow: 'encrypted-media', allowfullscreen: true %>
+          <% if @board.identifier.present? %>
+            <%= content_tag 'iframe', nil, width: '560', height: '315', src: "https://www.youtube.com/embed/#{@board.split_id_from_youtube_url}", \
+            frameborder: 0, gesture: 'media', allow: 'encrypted-media', allowfullscreen: true %>
+          <% else %>
+            参考動画はありません。
+          <% end %>
         </div>
       </article>
     </div>

@@ -1,9 +1,9 @@
-<div class='col-sm-12 col-md-6 col-lg-4 mb-3'>
+<div class='board_background col-sm-12 col-md-6 col-lg-4 mb-3'>
   <div id=<%= "product-id-#{board.id}" %>>
     <div class='card'>
       　<%= image_tag board.board_image_url, class: 'card-img-top', size: '300x200' %>
       <div class='card-body'>
-        <h4 class='card-title'>
+        <div class='card-title'>
           <%= link_to board.title, board_path(board.id) %>
           <div class='d-inline float-right'>
             <% if current_user.own?(board) %>
@@ -12,24 +12,33 @@
               <%= render 'boards/bookmark_area', board: board %>
             <% end %>
           </div>
-        </h4>
+        </div>
+
         <ul class="list-group list-group-flush">
           <li class='list-group-item'>
             <i class='fa fa-user'></i>
-            <%= board.user.decorate.full_name %>
+            <%= link_to user_path(board.user_id) do %>
+              <%= board.user.decorate.full_name %>
+            <% end %>
           </li>
           <li class='list-group-item'>
             <%= icon 'far', 'calendar' %>
             <%= l board.created_at, format: :short %>
           </li>
+          <li class='list-group-item'>
             <li class='list-inline-item text-info font-weight-bold'>
               投稿の内容
-              <li class='list-inline-item'>
-                <%= truncate(board.body) do %>
-                  <p class='card-text'>(続きを読むには<%= link_to 'ここ', board_path(board.id) %>をクリックしてください。)<p>
-                <% end %>
-              </li>
             </li>
+            <li class='list-inline-item'>
+              <%= truncate(board.body) do %>
+                <p class='card-text'>(続きを読むには<%= link_to 'ここ', board_path(board.id) %>をクリックしてください。)<p>
+              <% end %>
+            </li>
+          </li>
+          <div class="card-footer">
+            <p>コメント<%= board.comments.count.to_s(:delimited) %>件</p>
+            <p>お気に入り登録数<%= board.bookmarks.count.to_s(:delimited) %>件</p>
+          </div>
         </ul>
       </div>
     </div>

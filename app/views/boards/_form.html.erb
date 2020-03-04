@@ -2,12 +2,12 @@
   <%= render 'shared/errors_messages', model: f.object %>
   <div class='form-group'>
     <%= f.label :title %>
-    <%= f.text_field :title, class: 'form-control', id: 'board_title' %>
+    <%= f.text_field :title, class: 'form-control', id: 'board_title', placeholder: "例：実務未経験者がエンジニアになるために必要なこと５選を紹介する動画" %>
   </div>
   <div class='form-group'>
     <%= f.label :body %>
     <%= f.text_area :body, class: 'form-control', row: '10', heigth: '400px', id: 'board_body',
-        'data-toggle': :tooltip, 'data-placement': :right, placeholder: "例：実務未経験者がエンジニアになるために必要なこと５選を紹介する動画",
+        'data-toggle': :tooltip, 'data-placement': :right, placeholder: "説明",
         'title': '右下をドラッグで引っ張ると枠が広がります。ここにリクエストやアイデアの内容を記載してください。' %>
     <%= f.label :identifier %>
     <%= f.text_area :identifier, class: 'form-control', row: '10', heigth: '100px', id: 'board_identifier',
@@ -21,8 +21,6 @@
   </div>
   <%= f.submit t('.boards_post'), class: 'btn btn-primary' %>
 <% end %>
-<script type="text/javascript" src="js/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="js/bootstrap.bundle.js"></script>
 <script type="text/javascript">
   $(function () {
     $('[data-toggle="tooltip"]').tooltip();
