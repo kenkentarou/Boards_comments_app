@@ -8,7 +8,7 @@
         <div class='card-body'>
           <div class='row'>
             <div class='col-md-3'>
-              <%= image_tag @user.user_image.url, class: 'card-img-top img-fluid', size: '300x200' %>
+              <%= image_tag @board.board_image.url, class: 'card-img-top img-fluid', size: '300x200' %>
             </div>
             <div class='col-md-9'>
               <ul class="list-group list-group-flush">
@@ -22,7 +22,11 @@
                       <% end %>
                     </div>
                 </li>
-                <li class='list-group-item'>by <%= @board.user.decorate.full_name %></li>
+                <li class='list-group-item'>
+                  <%= link_to user_path(@board.user_id) do %>
+                    by <%= @board.user.decorate.full_name %>
+                  <% end %>
+                </li>
                 <li class='list-group-item'>更新日:<%= l @board.created_at, format: :short %></li>
               </ul>
             </div>
