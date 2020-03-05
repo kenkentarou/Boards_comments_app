@@ -2,7 +2,8 @@ class UsersController < ApplicationController
   skip_before_action :require_login, only: %i[new create]
 
   def index
-    @users = User.all
+    @search = User.ransack(params[:q])
+    @users = @search.result.includes(:boards).order(created_at: :desc).page(params[:page])
   end
 
   def new

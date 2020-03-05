@@ -1,4 +1,10 @@
-<div class="wrapper">
+<h1>ユーザー一覧</h1>
+<div class='row'>
+  <div class='col-lg-10 offset-lg-1'>
+    <!-- 検索フォーム -->
+    <%= render 'search_form', url: users_path, search: @search %>
+  </div>
+</div>
   <div class="users-container">
     <div class="row">
       <div class="offset-md-3 col-md-6 users-list-container">
@@ -9,6 +15,7 @@
           </div>
           <hr>
         <% end %>
+        <%= paginate @users %>
       </div>
     </div>
   </div>

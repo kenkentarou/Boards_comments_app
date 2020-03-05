@@ -1,8 +1,21 @@
-<%= search_form_for search, url: url do |f| %>
-<div class='input-group mb-3'>
-  <%= f.search_field :title_or_body_cont, placeholder: "検索ワード", class: 'form-control' %>
-  <div class='input-group-append'>
-    <%= f.submit value: "検索", class: 'btn btn-primary' %>
+<div class="row">
+  <div class="col-md-12 mb-3">
+    <%= search_form_for search, url: url do |f| %>
+  <div class="row">
+    <div class="form-inline align-items-center mx-auto">
+      <div class="col-auto">
+        <%= f.search_field :title_or_body_cont, placeholder: "検索ワード", class: 'form-control' %>
+      </div>
+      <div class="col-auto">
+        <%= f.date_field :created_at_gteq, class: 'form-control' %>
+        <span>〜</span>
+        <%= f.date_field :created_at_lteq_end_of_day, class: 'form-control' %>
+      </div>
+      <div class="col-auto">
+        <%= f.submit value: "検索", class: 'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+<% end %>
   </div>
 </div>
-<% end %>
